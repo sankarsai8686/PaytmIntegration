@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+</head>
+<body >
+
+<!-- <strong th:text="${result_check}">RESULT IS</strong> -->
+
+<div th:if="${result_check}">
+<h2 style="color: green;">Payment Result is : <strong th:text="${RESPMSG}"/> 
+For Amount <strong th:text="${TXNAMOUNT}"></strong></h2> </br>
+</div>
+<div th:unless="${result_check}">
+<h2  style="color: red;">Payment Result is : <strong th:text="${RESPMSG}"/> 
+For Amount <strong th:text="${TXNAMOUNT}"></strong></h2> </br>
+</div>
+
+
+<b>Initiate one More payment :</b> <a href="/"> Click Here</a>
+
+
+
+<div align="center">
+         <h1>PAYMENT PROCESS COMPLETED</h1>
+         <img alt="Processing" src="/images/check-circle.gif" align="middle" >
+      </div>
+      
+ <table align="center">
+ <tr th:each = "result:${result}">
+ <td th:text="${result.key} + '  : -  ' + ${result.value}"></td>
+ </tr>
+ </table>
+      
+</body>
+</html>

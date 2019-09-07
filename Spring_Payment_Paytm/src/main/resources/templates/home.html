@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Order Item</title>
+<script type="text/javascript">
+function onloadfn()
+{
+	//alert("onloadfn()");
+	 var xhttp = new XMLHttpRequest();
+	  xhttp.onreadystatechange = function() {
+	    if (this.readyState == 4 && this.status == 200) {
+	    	//alert("Result : "+this.responseText);
+	     document.getElementById("ORDER_ID").value = this.responseText;
+	    }
+	  };
+	  xhttp.open("GET", "/getRandomNumber", true);
+	  xhttp.send();
+}
+</script>
+</head>
+<body onload="onloadfn()" >
+<hr>
+<h2 style="color: green" align="center">PAYTM INTEGRATION IN SPRING BOOT</h2></br><hr>
+<form action="/pgredirect" method="post">
+<table align="center" >
+<tr>
+<th></th>
+<th></th>
+</tr>
+<tr>
+<td>ORDER ID</td>
+<td><input type="text" name="ORDER_ID" id="ORDER_ID" placeholder="Enter ORDER_ID " value=""></td>
+</tr>
+<tr>
+<tr>
+<td>Customer ID</td>
+<td><input type="text" name="CUST_ID" placeholder="Enter CUST_ID " value="123456"></td>
+</tr>
+<tr>
+<td>Amount</td>
+<td><input type="text" name="TXN_AMOUNT" placeholder="Enter TXN_AMOUNT " value="1.00"></td>
+</tr>
+<tr>
+<td></td>
+<td><input type="submit" value="PAY"></td>
+</tr>
+</table>
+<hr>
+</form>
+</body>
+</html>

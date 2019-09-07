@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+<title>Please Wait </title>
+<script type="text/javascript">
+function onloadfn()
+{
+	alert("onload");
+	document.redirectPaytm.submit();
+}
+</script>
+</head>
+<body onload="onloadfn()">
+<form th:action="${paytmURL}" method="post" name="redirectPaytm">
+<strong th:text="${paytmURL}"></strong>
+		<table>
+			<tr th:each="entry : ${params}">
+ <!-- th:text="${entry.key} + '  : -  ' + ${entry.value}" -->
+				<td  > <input type="hidden" th:name="${entry.key}" th:value="${entry.value}" > </td>
+
+			</tr>
+		</table>
+	</form>
+	<center>
+         <h1>Please do not refresh this page...</h1>
+         <img alt="Processing" src="/images/processing.gif" align="middle" >
+      </center>
+</body>
+</html>
